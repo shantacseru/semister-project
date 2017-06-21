@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\File;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
@@ -36,15 +36,15 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-        
-         
-     if ($request->hasFile('file')) {
+        // return $request->image;
+         // return $request->all();
+     if ($request->hasFile('image')) {
 
-         $filename = $request->file->getClientOriginalName();
+         $filename = $request->image->getClientOriginalName();
 
-          $filesize = $request->file->getClientSize();
-        # code...
-        $request->file->storeAs('public/upload',$filename);
+          $filesize = $request->image->getClientSize();
+       
+        $request->image->storeAs('public/upload',$filename);
 
        $file = new File;
 
@@ -57,7 +57,9 @@ class FileController extends Controller
             $file->time=$request->time;
          
 
-       $file->filename =  $filename;
+       $file->filename =  "/storage/upload/".$filename;
+
+       // return Storage::url($filename);
        
         $file->filesize =  $filesize;
  
@@ -87,7 +89,11 @@ class FileController extends Controller
      */
     public function show($id)
     {
-        //
+        $file = new File;
+
+        $item = $file::find($id);
+
+        return view('showProductImage',compact('item'));
     }
 
     /**
