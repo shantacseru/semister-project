@@ -27,15 +27,15 @@
                     <label class="col-md-3 control-label">Catagory:</label>
                     <div class="col-md-8">
                        <select name="category" class="form-control">
-                       <option value="" disabled selected hidden>Select Catagory.</option>
-              <option value="">value1</option>
-              <option value="">value2</option>
-              <option value="">value3</option>
-              <option value="">value4</option>
-              <option value="">value5</option>
-              <option value="">value6</option>
-              <option value="">value7</option>
-            </select>
+                        <option value="" disabled selected hidden>Select Catagory.</option>
+                        <option value="value1">value1</option>
+                        <option value="value2">value2</option>
+                        <option value="value3">value3</option>
+                        <option value="value4">value4</option>
+                        <option value="value5">value5</option>
+                        <option value="value6">value6</option>
+                        <option value="value7">value7</option>
+                      </select>
                     </div>
                 </div>
 
@@ -61,7 +61,7 @@
                 <div class="form-group">
                     <label class="col-md-3 control-label">Upload Image:</label>
                     <div class="col-md-8">
-                       <input type="file" name="file">
+                       <input type="file" name="image">
                     </div>
                 </div>
 
